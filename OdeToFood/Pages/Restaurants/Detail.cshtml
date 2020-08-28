@@ -1,0 +1,31 @@
+﻿@page "{restaurantId:int}"
+@model MyApp.Namespace.DetailModel
+@{
+}
+
+<div class="card text-left">
+  <img class="card-img-top" src="../bird.jpg">
+  <div class="card-body">
+    <h4 class="card-title">@Model.Restaurant.Name</h4>
+        <div>
+    <div>
+        Id: @Model.Restaurant.Id
+    </div>
+        <div>
+        Location: @Model.Restaurant.Location
+    </div>
+        <div>
+        Cuisine: @Model.Restaurant.Cuisine
+    </div>
+    @if(Model.Message!=null)
+    {
+        <div class="alert alert-info">
+            @Model.Message
+        </div>
+    }
+    <div>
+        <a asp-page=".\List">All Restaurants</a>
+    </div>
+</div>
+  </div>
+</div>
