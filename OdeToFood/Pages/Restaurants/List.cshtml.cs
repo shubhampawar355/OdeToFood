@@ -16,14 +16,14 @@ namespace MyApp.Namespace
         private readonly IRestaurantsData restaurantsData;
         [TempData]
         public string DeleteMessage { get; set; }
-        public string Message{get;set;}
+        public string Message { get; set; }
 
         public string SearchTerm { get; set; }
         public IEnumerable<Restaurant> Restaurants { get; set; }
-        public ListModel(IConfiguration config,IRestaurantsData restaurantsData )
+        public ListModel(IConfiguration config, IRestaurantsData restaurantsData)
         {
-         this.config=config;   
-         this.restaurantsData=restaurantsData;
+            this.config = config;
+            this.restaurantsData = restaurantsData;
         }
         // public void OnGet()
         // {
@@ -33,10 +33,11 @@ namespace MyApp.Namespace
         // }
         public void OnGet(string searchTerm)
         {
-            this.SearchTerm=searchTerm;
+            this.SearchTerm = searchTerm;
             //this.Message="Hello, world!";
-            this.Message=config["Message"];
-            this.Restaurants=restaurantsData.GetRestaurantsByName(searchTerm);
+            this.Message = config["Message"];
+            this.Restaurants = restaurantsData.GetRestaurantsByName(searchTerm);
         }
+  
     }
 }

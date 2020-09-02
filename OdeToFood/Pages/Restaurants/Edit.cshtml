@@ -1,23 +1,42 @@
 ﻿@page "{restaurantId:int?}"
 @model MyApp.Namespace.EditModel
 @{
+    ViewData["Title"] = "Edit";
 
 }
 <h2>Editiing @Model.Restaurant.Name</h2>
-<form method="post" >
-    <input type="hidden" asp-for="Restaurant.Id" />
-    <div class="form-group">
-         <label asp-for="Restaurant.Name"></label>
-         <input asp-for="Restaurant.Name" class="form-control" />
-    </div>
+<div>
+    <form method="post">
+        <input type="hidden" asp-for="Restaurant.Id" />
         <div class="form-group">
-         <label asp-for="Restaurant.Location"></label>
-         <input asp-for="Restaurant.Location" class="form-control" />
-    </div>
+            <label asp-for="Restaurant.Name"></label>
+            <input asp-for="Restaurant.Name" class="form-control" />
+            <span asp-validation-for="Restaurant.Name" class="text-danger"></span>
+        </div>
         <div class="form-group">
-         <label asp-for="Restaurant.Cuisine"></label>
-         <select asp-for="Restaurant.Cuisine" asp-items="Model.Cuisines" class="form-control" >
-         </select>
-    </div>
-    <button class="btn btn-primary">Save Changes</button>
-</form>
+            <label asp-for="Restaurant.Location"></label>
+            <input asp-for="Restaurant.Location" class="form-control" />
+            <span asp-validation-for="Restaurant.Location" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Restaurant.Cuisine"></label>
+            <select asp-for="Restaurant.Cuisine" asp-items="Model.Cuisines" class="form-control">
+            </select>
+            <span asp-validation-for="Restaurant.Cuisine" class="text-danger"></span>
+        </div>
+        <button class="btn btn-info">Save Changes</button>
+
+    </form>
+</div>
+<br />
+<div>
+    <a asp-page=".\List" class="btn btn-info">
+        <span class="glyphicon"></span> Back to list
+    </a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+}
+
+
